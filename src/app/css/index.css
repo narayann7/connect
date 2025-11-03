@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+* {
+  color: #ececec;
+  font-family: "Poppins", "Sen", sans-serif;
+}
+
+body {
+  background-color: #11181c;
+}
+
+@layer utilities {
+  @media (max-width: 768px) {
+    .bg-mobile {
+      background-size: 250% !important;
+      background-position: -50vh 30vh !important;
+    }
+  }
+}

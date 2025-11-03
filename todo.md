@@ -1,0 +1,3 @@
+- add readme file content
+- make seo optimization
+- add analytics tracking
