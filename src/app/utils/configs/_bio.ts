@@ -1,5 +1,5 @@
 const bioConfig = {
-  name: 'narayan',
+  name: 'Narayan',
   avatar: 'avatar.png',
   description: 'Software Developer | Tinkerer',
   author: 'narayan',

@@ -1,9 +1,9 @@
-import bioConfig from "./_bio";
-import linkConfig from "./_links";
+import bio from "./_bio";
+import link from "./_links";
 
 const config = {
-  bioConfig,
-  linkConfig,
+  bio,
+  link,
   lastUpdated: __BUILD_DATE__,
 }
 

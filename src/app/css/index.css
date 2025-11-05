@@ -13,10 +13,6 @@ html {
   font-family: "Poppins", "Sen", sans-serif;
 }
 
-body {
-  background-color: #11181c;
-}
-
 @layer utilities {
   @media (max-width: 768px) {
     .bg-mobile {
@@ -24,4 +20,13 @@ body {
       background-position: -50vh 30vh !important;
     }
   }
+}
+
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

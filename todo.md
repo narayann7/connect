@@ -1,3 +1,5 @@
 - add readme file content
 - make seo optimization
-- add analytics tracking
+- add firebase to deployment
+- setup continuous integration
+- add analytics tracking with google analytics <> firebase
