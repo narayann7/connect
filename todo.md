@@ -3,3 +3,4 @@
 - add firebase to deployment
 - setup continuous integration
 - add analytics tracking with google analytics <> firebase
+- use signature as logo
