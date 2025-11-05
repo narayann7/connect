@@ -21,17 +21,9 @@ import { SocialIconData } from "./SocialIcon";
 import { SocialIconList } from "./SocialIconList";
 
 const Footer = () => {
-  const lastUpdated = new Date().toLocaleDateString("en-US", {
-    month: "short",
-    year: "numeric",
-  });
-
   return (
-    <footer className="w-full py-8 text-center text-sm text-gray-600">
-      <p>
-        Developed by <span className="font-medium text-gray-800">Narayan</span>
-      </p>
-      <p className="mt-1">Last updated {lastUpdated}</p>
+    <footer className="w-full py-6 text-center text-xs text-gray-500">
+      <p>Developed by Narayan · Last updated Nov 2024</p>
     </footer>
   );
 };

@@ -4,3 +4,4 @@
 - setup continuous integration
 - add analytics tracking with google analytics <> firebase
 - use signature as logo
+- have ui flexible for more links
