@@ -31,7 +31,6 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ data }) => {
         aria-label={data.label}
         whileHover={{
           scale: 1.1,
-          rotate: [0, -5, 5, 0],
           transition: { duration: 0.3 },
         }}
         whileTap={{ scale: 0.9 }}
@@ -39,9 +38,8 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ data }) => {
       >
         <motion.div
           whileHover={{
-            scale: 1.2,
-            rotate: 360,
-            transition: { duration: 0.5 },
+            scale: 1.1,
+            transition: { duration: 0.2 },
           }}
         >
           <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />

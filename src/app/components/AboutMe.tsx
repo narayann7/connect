@@ -34,18 +34,6 @@ const AboutMe: React.FC<AboutMeProps> = ({
             src={logoUrl}
             alt={`${title} logo`}
             className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover mb-3 sm:mb-4 shadow-lg ring-2 ring-white/10"
-            whileHover={{
-              scale: 1.05,
-              rotate: [0, -5, 5, 0],
-              transition: { duration: 0.3 },
-            }}
-            animate={{
-              boxShadow: [
-                "0 10px 30px rgba(255,255,255,0.1)",
-                "0 10px 40px rgba(255,255,255,0.15)",
-                "0 10px 30px rgba(255,255,255,0.1)",
-              ],
-            }}
             transition={{
               duration: 3,
               repeat: Infinity,
@@ -93,7 +81,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-sm sm:text-base md:text-lg mb-2 sm:mb-3 text-white/80"
+          className="text-base mb-2 sm:mb-3 text-white/80"
         >
           {subtitle}
         </motion.p>
@@ -105,7 +93,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="text-sm sm:text-base text-gray-700 max-w-sm sm:max-w-md md:max-w-xl leading-relaxed"
+          className="text-sm sm:text-base text-gray-500 max-w-sm sm:max-w-md md:max-w-xl leading-relaxed"
         >
           {description}
         </motion.p>

@@ -1,5 +1,5 @@
-import bio from "./_bio";
-import link from "./_links";
+import bio from "./bio";
+import link from "./links";
 
 const config = {
   bio,

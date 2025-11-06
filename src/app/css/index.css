@@ -8,6 +8,25 @@
 html {
   scroll-behavior: smooth;
 }
+
+html,
+body {
+  background-color: #000;
+  min-height: 100%;
+}
+
+@layer base {
+  html,
+  body {
+    @apply bg-black;
+  }
+}
+
+#root {
+  min-height: 100vh;
+  background-color: #000;
+}
+
 * {
   color: #ececec;
   font-family: "Poppins", "Sen", sans-serif;
