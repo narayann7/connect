@@ -4,7 +4,7 @@ import StringUtils from "../utils/string_utils";
 interface AboutMeProps {
   title: string;
   subtitle?: string;
-  description: string;
+  description?: string;
   linkUrl?: string;
   logoUrl?: string;
 }
@@ -100,14 +100,16 @@ const AboutMe: React.FC<AboutMeProps> = ({
       )}
 
       {/* Description */}
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.25 }}
-        className="text-sm sm:text-base text-gray-700 max-w-sm sm:max-w-md md:max-w-xl leading-relaxed"
-      >
-        {description}
-      </motion.p>
+      {description && (
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="text-sm sm:text-base text-gray-700 max-w-sm sm:max-w-md md:max-w-xl leading-relaxed"
+        >
+          {description}
+        </motion.p>
+      )}
     </div>
   );
 };

@@ -121,8 +121,6 @@ function Core() {
       <div className="flex-shrink-0 w-full mb-6 sm:mb-8">
         <AboutMe
           title={config.bio.name}
-          description="Leveling up one code at a time"
-          linkUrl={config.link.portfolio}
           subtitle={config.bio.description}
           logoUrl={dp}
         />
