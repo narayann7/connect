@@ -16,22 +16,23 @@ export const SocialIconList: React.FC<SocialIconListProps> = ({
   layout = "horizontal",
   gridColumns = 4,
 }) => {
-  // Generate grid column classes
+  // Generate responsive grid column classes
   const getGridColumnClass = () => {
     const columnMap = {
       2: "grid-cols-2",
-      3: "grid-cols-3",
-      4: "grid-cols-4",
-      5: "grid-cols-5",
-      6: "grid-cols-6",
+      3: "grid-cols-2 sm:grid-cols-3",
+      4: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4",
+      5: "grid-cols-2 sm:grid-cols-3 md:grid-cols-5",
+      6: "grid-cols-3 sm:grid-cols-4 md:grid-cols-6",
     };
     return columnMap[gridColumns];
   };
 
-  // Base layout classes
+  // Base layout classes with responsive spacing
   const layoutClasses = {
-    horizontal: "flex items-center gap-4",
-    grid: `grid ${getGridColumnClass()} gap-4`,
+    horizontal:
+      "flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4",
+    grid: `grid ${getGridColumnClass()} gap-3 sm:gap-4 place-items-center`,
   };
 
   return (

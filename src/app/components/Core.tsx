@@ -22,7 +22,7 @@ import { SocialIconList } from "./SocialIconList";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-6 text-center text-xs text-gray-500">
+    <footer className="w-full py-4 sm:py-6 text-center text-xs sm:text-sm text-gray-500">
       <p>Developed by Narayan · Last updated Nov 2024</p>
     </footer>
   );
@@ -105,9 +105,9 @@ function Core() {
   ];
 
   return (
-    <div className="h-screen overflow-y-visible flex flex-col items-center px-6 py-8 scrollbar-hide justify-center">
-      {/* Top Section - About Me (Sticky or at top) */}
-      <div className="flex-shrink-0 w-full mb-8">
+    <div className="min-h-screen overflow-y-auto flex flex-col items-center px-4 sm:px-6 py-6 sm:py-8 md:py-12 scrollbar-hide justify-center">
+      {/* Top Section - About Me */}
+      <div className="flex-shrink-0 w-full mb-6 sm:mb-8">
         <AboutMe
           title={config.bio.name}
           description="Leveling up one code at a time"
@@ -118,7 +118,7 @@ function Core() {
       </div>
 
       {/* Social Icons Section */}
-      <div className="flex-shrink-0 w-full mb-8 overflow-visible">
+      <div className="flex-shrink-0 w-full mb-6 sm:mb-8 overflow-visible">
         <SocialIconList icons={socialIcons} />
       </div>
 
@@ -127,8 +127,8 @@ function Core() {
         <MenuList items={menuItems} />
       </div>
 
-      {/* Optional: Footer spacing */}
-      <div className="h-8 flex-shrink-0" />
+      {/* Footer spacing */}
+      <div className="h-6 sm:h-8 flex-shrink-0" />
       <Footer />
     </div>
   );
