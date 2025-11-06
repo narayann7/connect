@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 export interface SocialIconData {
@@ -14,7 +15,7 @@ interface SocialIconProps {
 export const SocialIcon: React.FC<SocialIconProps> = ({ data }) => {
   const IconComponent = data.icon;
 
-  const Wrapper = data.link ? "a" : "button";
+  const Wrapper = data.link ? motion.a : motion.button;
   const wrapperProps = data.link
     ? {
         href: data.link,
@@ -28,9 +29,23 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ data }) => {
       <Wrapper
         {...wrapperProps}
         aria-label={data.label}
-        className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 hover:bg-white/10 active:bg-white/10 backdrop-blur-sm rounded-full transition-all duration-300 ease-out hover:border-white/20 hover:scale-105 active:scale-95 touch-manipulation"
+        whileHover={{
+          scale: 1.1,
+          rotate: [0, -5, 5, 0],
+          transition: { duration: 0.3 },
+        }}
+        whileTap={{ scale: 0.9 }}
+        className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 hover:bg-white/10 active:bg-white/10 backdrop-blur-sm rounded-full transition-all duration-300 ease-out hover:border-white/20 touch-manipulation"
       >
-        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-200 group-hover:scale-110" />
+        <motion.div
+          whileHover={{
+            scale: 1.2,
+            rotate: 360,
+            transition: { duration: 0.5 },
+          }}
+        >
+          <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+        </motion.div>
       </Wrapper>
     </div>
   );

@@ -3,6 +3,7 @@ import dp from "../../assets/dp.jpeg";
 import config from "../utils/configs/config";
 import AboutMe from "./AboutMe";
 
+import { motion } from "framer-motion";
 import {
   FileUser,
   Github,
@@ -22,9 +23,14 @@ import { SocialIconList } from "./SocialIconList";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-4 sm:py-6 text-center text-xs sm:text-sm text-gray-500">
+    <motion.footer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 1 }}
+      className="w-full py-4 sm:py-6 text-center text-xs sm:text-sm text-gray-500"
+    >
       <p>Developed by Narayan · Last updated Nov 2024</p>
-    </footer>
+    </motion.footer>
   );
 };
 
@@ -105,7 +111,12 @@ function Core() {
   ];
 
   return (
-    <div className="min-h-screen overflow-y-auto flex flex-col items-center px-4 sm:px-6 py-6 sm:py-8 md:py-12 scrollbar-hide justify-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen overflow-y-auto flex flex-col items-center px-4 sm:px-6 py-6 sm:py-8 md:py-12 scrollbar-hide justify-center"
+    >
       {/* Top Section - About Me */}
       <div className="flex-shrink-0 w-full mb-6 sm:mb-8">
         <AboutMe
@@ -130,7 +141,7 @@ function Core() {
       {/* Footer spacing */}
       <div className="h-6 sm:h-8 flex-shrink-0" />
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 

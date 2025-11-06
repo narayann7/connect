@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { SocialIcon, SocialIconData } from "./SocialIcon";
 
@@ -36,10 +37,39 @@ export const SocialIconList: React.FC<SocialIconListProps> = ({
   };
 
   return (
-    <div className={`${layoutClasses[layout]} ${className}`}>
+    <motion.div
+      className={`${layoutClasses[layout]} ${className}`}
+      initial="hidden"
+      animate="visible"
+      variants={{
+        visible: {
+          transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2,
+          },
+        },
+      }}
+    >
       {icons.map((icon, index) => (
-        <SocialIcon key={index} data={icon} />
+        <motion.div
+          key={index}
+          variants={{
+            hidden: { opacity: 0, scale: 0.5, y: 20 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              transition: {
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              },
+            },
+          }}
+        >
+          <SocialIcon data={icon} />
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
