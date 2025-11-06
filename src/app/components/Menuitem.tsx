@@ -4,7 +4,8 @@ import React from "react";
 export interface MenuItemData {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
-  onClick: () => void;
+  link?: string;
+  onClick?: () => void;
 }
 
 interface MenuItemProps {
@@ -14,9 +15,18 @@ interface MenuItemProps {
 export const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
   const IconComponent = data.icon;
 
+  const Wrapper = data.link ? "a" : "button";
+  const wrapperProps = data.link
+    ? {
+        href: data.link,
+        target: "_blank",
+        rel: "noopener noreferrer",
+      }
+    : { onClick: data.onClick };
+
   return (
-    <button
-      onClick={data.onClick}
+    <Wrapper
+      {...wrapperProps}
       className="group w-full flex items-center justify-between px-4 py-3 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-200 ease-out border border-white/10 hover:border-white/20"
     >
       <div className="flex items-center gap-1">
@@ -27,6 +37,6 @@ export const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
       </div>
 
       <ArrowUpRight className="w-5 h-5 text-white/60 group-hover:text-white transition-colors" />
-    </button>
+    </Wrapper>
   );
 };
