@@ -8,6 +8,13 @@ module.exports = {
         primaryText: "#ffffff",
         disabled: "#9ca3af",
       },
+
+      rotate: {
+        10: "10deg",
+      },
+      fontFamily: {
+        sen: ["Sen", "sans-serif"],
+      },
       animation: {
         fadeIn: "fadeIn 0.2s ease-out",
       },

@@ -4,3 +4,4 @@
 - use signature as logo
 - have ui flexible for more links
 - use better icons for social links
+- make background lines more darker
