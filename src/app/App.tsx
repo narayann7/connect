@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { Route, Routes } from "react-router-dom";
 import blur_circle from "../assets/blur_circle.png";
 import Core from "./components/Core";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -20,7 +22,10 @@ function App() {
 
       {/* Main content */}
       <div className="flex items-center justify-center flex-col relative z-10">
-        <Core />
+        <Routes>
+          <Route path="/" element={<Core />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
 
         {/* Animated blur circle decoration with rotation and pulse */}
         <motion.div

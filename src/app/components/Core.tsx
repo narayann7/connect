@@ -23,7 +23,6 @@ function Core() {
         <AboutMe
           title={config.bio.name}
           subtitle={config.bio.description}
-          description="Talk is cheap. Show me the code"
           logoUrl={dp}
         />
 
