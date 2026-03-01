@@ -19,7 +19,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
   const IconComponent = data.icon;
   const [emailClicked, setEmailClicked] = useState(false);
   const [showCopied, setShowCopied] = useState(false);
-  const resetTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const resetTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     return () => {
