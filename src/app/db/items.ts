@@ -8,7 +8,7 @@ import {
   Twitter,
   User
 } from "lucide-react";
-import { LinkedInIcon, StackOverflowIcon, TelegramIcon } from "../components/CustomIcons";
+import { LinkedInIcon, TelegramIcon } from "../components/CustomIcons";
 import { MenuItemData } from "../components/Menuitem";
 import { SocialIconData } from "../components/SocialIcon";
 import config from "./config";
@@ -44,7 +44,8 @@ export const menuItems: MenuItemData[] = [
     icon: Mail,
     title: "Drop a Email",
     onClick: () => window.open(`mailto:${config.link.gmail}`),
-    link: `mailto:${config.link.gmail}`,
+    customClickHandler: true,
+    email: config.link.gmail,
   },
 ];
 
@@ -56,22 +57,16 @@ export const socialIcons: SocialIconData[] = [
     link: config.link.twitter,
   },
   {
-    icon: Instagram,
-    label: "Instagram",
-    onClick: () => window.open(config.link.instagram, "_blank"),
-    link: config.link.instagram,
-  },
-  {
     icon: Github,
     label: "Github",
     onClick: () => window.open(config.link.github, "_blank"),
     link: config.link.github,
   },
   {
-    icon: StackOverflowIcon,
-    label: "Stack Overflow",
-    onClick: () => window.open(config.link.stackOverflow, "_blank"),
-    link: config.link.stackOverflow,
+    icon: Instagram,
+    label: "Instagram",
+    onClick: () => window.open(config.link.instagram, "_blank"),
+    link: config.link.instagram,
   },
   {
     icon: TelegramIcon,

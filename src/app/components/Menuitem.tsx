@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import React from "react";
+import { ArrowUpRight, Check, Copy } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 
 export interface MenuItemData {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
   link?: string;
   onClick?: () => void;
+  customClickHandler?: boolean;
+  email?: string;
 }
 
 interface MenuItemProps {
@@ -15,6 +17,42 @@ interface MenuItemProps {
 
 export const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
   const IconComponent = data.icon;
+  const [emailClicked, setEmailClicked] = useState(false);
+  const [showCopied, setShowCopied] = useState(false);
+  const resetTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        clearTimeout(resetTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleEmailClick = async () => {
+    if (!emailClicked && data.email) {
+      // First click: copy to clipboard
+      try {
+        await navigator.clipboard.writeText(data.email);
+        setShowCopied(true);
+        setEmailClicked(true);
+        setTimeout(() => setShowCopied(false), 2000);
+
+        // Reset to copy mode after 3 seconds
+        if (resetTimerRef.current) {
+          clearTimeout(resetTimerRef.current);
+        }
+        resetTimerRef.current = setTimeout(() => {
+          setEmailClicked(false);
+        }, 3000);
+      } catch (err) {
+        console.error("Failed to copy email:", err);
+      }
+    } else if (data.onClick) {
+      // Second click: open email
+      data.onClick();
+    }
+  };
 
   const Wrapper = data.link ? motion.a : motion.button;
   const wrapperProps = data.link
@@ -23,7 +61,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
         target: "_blank",
         rel: "noopener noreferrer",
       }
-    : { onClick: data.onClick };
+    : { onClick: data.customClickHandler ? handleEmailClick : data.onClick };
 
   return (
     <Wrapper
@@ -51,7 +89,13 @@ export const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
       </div>
 
       <motion.div whileHover={{ x: 3, y: -3 }} transition={{ duration: 0.2 }}>
-        <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/60 group-hover:text-white transition-colors flex-shrink-0 ml-2" />
+        {data.customClickHandler && !emailClicked ? (
+          <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-white/60 group-hover:text-white transition-colors flex-shrink-0 ml-2" />
+        ) : data.customClickHandler && showCopied ? (
+          <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 ml-2" />
+        ) : (
+          <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/60 group-hover:text-white transition-colors flex-shrink-0 ml-2" />
+        )}
       </motion.div>
     </Wrapper>
   );

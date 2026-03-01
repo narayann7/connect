@@ -1,7 +1,7 @@
 const bioConfig = {
   name: 'Narayan',
-  description: 'Software Developer | Tinkerer',
-  author: 'narayan',
+  description: 'Software Developer | AI Native | Tinker | Tech',
+  author: 'Narayan',
 }
 
 export default bioConfig;
