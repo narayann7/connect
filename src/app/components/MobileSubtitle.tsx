@@ -177,7 +177,6 @@ function TypewriterGlitchSubtitle({ roles }: { roles: string[] }) {
     return () => clearTimeout(t);
   }, [phase, chars, roles.length]);
 
-  const displayed = chars.map((c) => c ?? "").join("");
   const isScrambling = phase === "typing" && settledCount < current.length;
 
   return (
