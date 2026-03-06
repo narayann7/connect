@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import StringUtils from "../utils/string_utils";
+import MobileSubtitle from "./MobileSubtitle";
+import type { MobileSubtitleVariant } from "../db/bio";
 
 interface AboutMeProps {
   title: string;
@@ -7,6 +9,7 @@ interface AboutMeProps {
   description?: string;
   linkUrl?: string;
   logoUrl?: string;
+  mobileSubtitleVariant?: MobileSubtitleVariant;
 }
 
 const AboutMe: React.FC<AboutMeProps> = ({
@@ -15,6 +18,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
   description,
   logoUrl,
   linkUrl,
+  mobileSubtitleVariant,
 }) => {
   return (
     <div className="flex flex-col items-center text-center px-4 sm:px-6">
@@ -75,16 +79,34 @@ const AboutMe: React.FC<AboutMeProps> = ({
         </motion.a>
       )}
 
-      {/* Subtitle */}
+      {/* Subtitle — mobile uses configured variant, desktop uses plain text */}
       {subtitle && (
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-base mb-2 sm:mb-3 text-white/80"
-        >
-          {subtitle}
-        </motion.p>
+        <>
+          {/* Mobile */}
+          <div className="sm:hidden mb-2">
+            {mobileSubtitleVariant ? (
+              <MobileSubtitle subtitle={subtitle} variant={mobileSubtitleVariant} />
+            ) : (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-base text-white/80"
+              >
+                {subtitle}
+              </motion.p>
+            )}
+          </div>
+          {/* Desktop */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="hidden sm:block text-base mb-2 sm:mb-3 text-white/80"
+          >
+            {subtitle}
+          </motion.p>
+        </>
       )}
 
       {/* Description */}
