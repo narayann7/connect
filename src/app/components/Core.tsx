@@ -1,4 +1,4 @@
-import dp from "../../assets/dp.jpeg";
+import dp from "../../assets/dp.png";
 import config from "../db/config";
 import AboutMe from "./AboutMe";
 
