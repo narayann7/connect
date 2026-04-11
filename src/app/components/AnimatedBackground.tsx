@@ -44,13 +44,13 @@ interface AnimatedBackgroundProps {
 }
 
 export default function AnimatedBackground({
-  colors = ["#D1EEE4", "#6EB69D", "#469a7c", "#0f2927", "#0a1a19"],
+  colors = ["#6EB69D", "#469a7c", "#0f2927", "#0a1a19"],
   opacity = 0.4,
   blur = 80,
   angle = 100,
   baseDuration = 20,
   overlayDuration = 15,
-  overlayBlendMode = "difference",
+  overlayBlendMode = "soft-light",
   overlayBandOpacity = 0.1,
   showOverlay = true,
   edgeOpacity = 0,
