@@ -52,7 +52,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-1 sm:mb-2 font-sen"
+        className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-1 sm:mb-2 font-serif"
       >
         {title}
       </motion.h1>

@@ -13,7 +13,9 @@ module.exports = {
         10: "10deg",
       },
       fontFamily: {
-        sen: ["Sen", "sans-serif"],
+        serif: ["Palatino", "Palatino Linotype", "Book Antiqua", "serif"],
+        sans: ["Gill Sans", "Gill Sans MT", "DM Sans", "Calibri", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       animation: {
         fadeIn: "fadeIn 0.2s ease-out",

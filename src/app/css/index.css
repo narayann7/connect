@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -29,7 +28,7 @@ body {
 
 * {
   color: #ececec;
-  font-family: "Inter", "Sen", sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", "DM Sans", "Calibri", sans-serif;
 }
 
 @layer utilities {
@@ -48,4 +47,13 @@ body {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: none; /* Prevent scroll chaining , bouncing, and overscroll glow */
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.3 0.05 170) transparent;
 }
