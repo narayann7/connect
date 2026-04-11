@@ -3,7 +3,7 @@ export type MobileSubtitleVariant = 'typewriter' | 'typewriter-fade' | 'typewrit
 
 const bioConfig = {
   name: 'Narayan',
-  description: 'AI Native | Software Developer | Tinkerer',
+  description: 'Software Developer | Tinkerer',
   author: 'Narayan',
   mobileSubtitleVariant: 'typewriter-glitch' as MobileSubtitleVariant,
 }

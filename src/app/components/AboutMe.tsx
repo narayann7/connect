@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-
+import type { MobileSubtitleVariant } from "../db/bio";
 import StringUtils from "../utils/string_utils";
-import { MorphingText } from "./MorphingText";
+import MobileSubtitle from "./MobileSubtitle";
 
 interface AboutMeProps {
   title: string;
@@ -9,7 +9,7 @@ interface AboutMeProps {
   description?: string;
   linkUrl?: string;
   logoUrl?: string;
-
+  mobileSubtitleVariant?: MobileSubtitleVariant;
 }
 
 const AboutMe: React.FC<AboutMeProps> = ({
@@ -18,7 +18,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
   description,
   logoUrl,
   linkUrl,
-
+  mobileSubtitleVariant,
 }) => {
   return (
     <div className="flex flex-col items-center text-center px-4 sm:px-6">
@@ -79,25 +79,24 @@ const AboutMe: React.FC<AboutMeProps> = ({
         </motion.a>
       )}
 
-      {/* Subtitle — mobile uses morphing text, desktop uses plain text */}
+      {/* Subtitle — mobile uses configured variant, desktop uses plain text */}
       {subtitle && (
         <>
           {/* Mobile */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="sm:hidden flex justify-center mb-2"
-          >
-            <MorphingText
-              texts={subtitle.split("|").map((s) => s.trim())}
-              color="rgba(255, 255, 255, 0.8)"
-              fontSize="1rem"
-              fontWeight="normal"
-              morphDuration={2.5}
-              pauseDuration={1.5}
-            />
-          </motion.div>
+          <div className="sm:hidden mb-2">
+            {mobileSubtitleVariant ? (
+              <MobileSubtitle subtitle={subtitle} variant={mobileSubtitleVariant} />
+            ) : (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-base text-white/80"
+              >
+                {subtitle}
+              </motion.p>
+            )}
+          </div>
           {/* Desktop */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
