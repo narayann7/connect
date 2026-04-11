@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import type { MobileSubtitleVariant } from "../db/bio";
+
 import StringUtils from "../utils/string_utils";
 import { MorphingText } from "./MorphingText";
 
@@ -9,7 +9,7 @@ interface AboutMeProps {
   description?: string;
   linkUrl?: string;
   logoUrl?: string;
-  mobileSubtitleVariant?: MobileSubtitleVariant;
+
 }
 
 const AboutMe: React.FC<AboutMeProps> = ({
@@ -18,7 +18,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
   description,
   logoUrl,
   linkUrl,
-  mobileSubtitleVariant,
+
 }) => {
   return (
     <div className="flex flex-col items-center text-center px-4 sm:px-6">

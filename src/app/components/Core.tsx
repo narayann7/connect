@@ -24,7 +24,6 @@ function Core() {
           title={config.bio.name}
           subtitle={config.bio.description}
           logoUrl={dp}
-          mobileSubtitleVariant={config.bio.mobileSubtitleVariant}
         />
 
         {/* Social Icons Section */}
