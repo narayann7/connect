@@ -44,7 +44,7 @@ interface AnimatedBackgroundProps {
 }
 
 export default function AnimatedBackground({
-  colors = ["#8b5cf6", "#3b82f6", "#ec4899"],
+  colors = ["#D1EEE4", "#6EB69D", "#469a7c", "#0f2927", "#0a1a19"],
   opacity = 0.4,
   blur = 80,
   angle = 100,
